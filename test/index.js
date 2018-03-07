@@ -1,6 +1,15 @@
 import test from 'ava'
 import { parseQueryString } from '../dist/index'
 
+test('Parses regular queries correctly', t => {
+  const queryString = ['key1=1', 'key2=2', 'key3=3'].join('&')
+  t.deepEqual(parseQueryString({ queryString }), {
+    key1: '1',
+    key2: '2',
+    key3: '3'
+  })
+})
+
 test('Parses object queries correctly', t => {
   const queryString = ['key[a]=1', 'key[b]=2', 'key[c]=3', 'key[d]=4'].join('&')
   t.deepEqual(parseQueryString({ queryString }), {
