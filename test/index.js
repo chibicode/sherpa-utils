@@ -69,3 +69,32 @@ test('Parses array of 2 objects correctly', t => {
     ]
   })
 })
+
+test('Parses array of 2 objects with empty keys correctly', t => {
+  const queryString = [
+    'key[][a]=1',
+    'key[][b]=2',
+    'key[][c]=3',
+    'key[][d]=',
+    'key[][a]=4',
+    'key[][b]=5',
+    'key[][c]=',
+    'key[][d]=6'
+  ].join('&')
+  t.deepEqual(parseQueryString({ queryString }), {
+    key: [
+      {
+        a: '1',
+        b: '2',
+        c: '3',
+        d: ''
+      },
+      {
+        a: '4',
+        b: '5',
+        c: '',
+        d: '6'
+      }
+    ]
+  })
+})
