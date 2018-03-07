@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "index",
+  "version": "0.1.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chibicode/npm-starter.git"
+  },
+  "authors": ["chibicode"],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "devDependencies": {
+    "ava": "next",
+    "prettier": "latest",
+    "prettier-eslint": "latest",
+    "rollup": "latest"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "yarn build && ava"
+  },
+  "files": ["dist"],
+  "dependencies": {}
+}
