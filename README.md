@@ -1,1 +1,1 @@
-# npm-starter
+# sherpa-utils
